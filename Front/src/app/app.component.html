@@ -1,0 +1,94 @@
+<div class="container">
+  <form [formGroup]="EventoForm" (ngSubmit)=persisteDado()>
+      <h3>Eventos</h3>
+      <div class="row">
+      <table class="table">
+      <tr>
+        <td>Tema</td>
+        <td>
+          <input type="hidden" formControlName="eventoId">
+
+          <input type="text" formControlName="tema">
+          <div *ngIf="submitted && EventoForm.controls.tema.errors" class="text-danger">
+            <div *ngIf="EventoForm.controls.tema.errors.required">O Tema é obrigatório</div>
+          </div>
+
+        </td>
+      </tr>
+      <tr>
+        <td>Local</td>
+        <td><input type="text" formControlName="local">
+          <div *ngIf="submitted && EventoForm.controls.local.errors" class="text-danger">
+            <div *ngIf="EventoForm.controls.local.errors.required">O Local é obrigatório</div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Data do Evento</td>
+        <td>
+          <input type="date" formControlName="dataEvento">
+          <div *ngIf="submitted && EventoForm.controls.dataEvento.errors" class="text-danger">
+            <div *ngIf="EventoForm.controls.dataEvento.errors.required">Informe a data do Evento</div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Qtd Pessoas</td>
+        <td>
+          <input type="number" formControlName="qtdPessoas">
+          <div *ngIf="submitted && EventoForm.controls.qtdPessoas.errors" class="text-danger">
+            <div *ngIf="EventoForm.controls.qtdPessoas.errors.required">A Quantidade de Pessoas é obrigatório</div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Lote</td>
+        <td>
+          <input type="text" formControlName="lote">
+          <div *ngIf="submitted && EventoForm.controls.lote.errors" class="text-danger">
+            <div *ngIf="EventoForm.controls.lote.errors.required">O Lote é obrigatório</div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button type="submit" class="btn btn-primary">{{EventValue}}</button>
+        </td>
+      </tr>
+    </table>
+    </div>
+   <div class="row">
+    <table class="table table-striped">
+      <tr>
+        <td>ID</td>
+        <td>Tema</td>
+        <td>Local</td>
+        <td>Data</td>
+        <td>Qtd Pessoas</td>
+        <td>Lote</td>
+        <td>Edita</td>
+        <td>Deleta</td>
+      </tr>
+      <tr *ngFor="let evento of eventos">
+        <td>{{evento.eventoId}}</td>
+        <td>{{evento.tema}}</td>
+        <td>{{evento.local}}</td>
+        <td>{{evento.dataEvento | date:'dd/MM/yyyy' }}</td>
+        <td>{{evento.qtdPessoas}}</td>
+        <td>{{evento.lote}}</td>
+        <td>
+          <a type="button" (click)="edit(evento)" class="btn btn-warning btn-sm mr-2">
+            Editar
+          </a>
+        </td>
+        <td>
+          <a type="button" (click)="delete(evento)" class="btn btn-danger btn-sm mr-2">
+            Apagar
+          </a>
+        </td>
+      </tr>
+      <!-- <pre>{{ eventos | json }}</pre> -->
+    </table>
+  </div>
+ </form>
+</div>
