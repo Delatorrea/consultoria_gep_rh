@@ -494,5 +494,3 @@ $RECYCLE.BIN/
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# SQLite
-*.db

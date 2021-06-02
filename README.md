@@ -20,25 +20,17 @@ Desenvolvimento de API em .NET Core com persistência de dados em Banco de dados
 Acese a pasta do projero: ...src\ProEventos.API
 
 
-No CLI digite o seguinte comando para criar as Migrations do Banco de dados
-
-
-| dotnet ef migrations add InitialMigration
-
-
-Em seguida Crie o banco de dados
-
-
-| dotnet ef database update
-
-
-Após isso basta subir a aplicação para ter a API e o Swagger rodando.
+Para subir a aplicação e ter a API e o Swagger rodando.
 
 
 | dotnet run
 
 
 ### Para subir o Front end siga os passos abaixo:
+
+| npm install
+
+depois
 
 | ng serve -o
 
